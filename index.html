@@ -42,10 +42,10 @@ section {
   justify-content: center;
   text-align: center;
   padding: 60px 20px;
-  gap: 20px;
+  gap: 22px;
   opacity: 0;
   transform: translateY(40px);
-  transition: all 1s ease;
+  transition: all 1.2s ease;
 }
 
 section.visible {
@@ -54,22 +54,28 @@ section.visible {
 }
 
 /* Headings */
-h1 {
-  font-size: 3.4rem;
-  font-weight: 800;
-}
-
-h2 {
-  font-size: 2.6rem;
-  font-weight: 700;
-}
+h1 { font-size: 3.6rem; font-weight: 800; }
+h2 { font-size: 2.7rem; font-weight: 700; }
 
 /* Text blocks */
 .text-box {
-  max-width: 900px;
-  font-size: 1.35rem;
+  max-width: 950px;
+  font-size: 1.4rem;
   line-height: 1.9;
   opacity: 0.95;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  margin-top: 20px;
+  font-size: 1.1rem;
+  opacity: 0.7;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* Buttons */
@@ -88,7 +94,7 @@ button {
 
 /* Slideshow */
 .slideshow {
-  max-width: 380px;
+  max-width: 400px;
   margin: 20px auto;
 }
 
@@ -125,7 +131,7 @@ button {
 .heart {
   position: fixed;
   bottom: -20px;
-  font-size: 22px;
+  font-size: 24px;
   animation: float 6s linear infinite;
   pointer-events: none;
 }
@@ -135,11 +141,15 @@ button {
   to { transform: translateY(-100vh); opacity: 0; }
 }
 
-/* Dramatic ending */
+/* Final cinematic */
 .final h1 {
-  font-size: 3.8rem;
+  font-size: 4rem;
   color: #ffb3c7;
-  text-shadow: 0 0 20px rgba(255,77,109,0.8);
+  text-shadow: 0 0 25px rgba(255,77,109,0.9);
+}
+
+.final {
+  background: radial-gradient(circle at center, rgba(255,77,109,0.15), transparent 60%);
 }
 
 .footer {
@@ -152,11 +162,11 @@ button {
 
 <!-- Sparkles -->
 <script>
-for (let i = 0; i < 80; i++) {
+for (let i = 0; i < 90; i++) {
   const s = document.createElement("div");
   s.className = "sparkle";
   s.style.left = Math.random() * 100 + "vw";
-  s.style.animationDuration = (5 + Math.random() * 5) + "s";
+  s.style.animationDuration = (5 + Math.random() * 6) + "s";
   s.style.opacity = Math.random();
   document.body.appendChild(s);
 }
@@ -167,6 +177,7 @@ for (let i = 0; i < 80; i++) {
   <h1>Hey Love ❤️</h1>
   <p class="text-box">This little universe is just for you ✨</p>
   <button id="playBtn">▶️ Play Our Song 🎶</button>
+  <div class="scroll-hint">Scroll ↓</div>
 </section>
 
 <!-- SONG MESSAGE -->
@@ -183,7 +194,7 @@ for (let i = 0; i < 80; i++) {
   <p class="text-box">
     If you told me that I would end up meeting the love of my life through a dating app, I would not have believed it at first.
     But here we are, 7 months later, and you are genuinely the best thing to ever happen to me.
-    From eating at all these fancy places, to listening to music with you in auto rides, and to us cuddling at home watching Modern Family,
+    From eating at all these fancy restaurants, to listening to music with you during auto rides, and to us cuddling at home watching Modern Family,
     I cherish every single moment with you. I will forever be grateful for having you.
   </p>
 </section>
@@ -193,9 +204,9 @@ for (let i = 0; i < 80; i++) {
   <h2>Why You Mean So Much To Me 💖</h2>
   <p class="text-box">
     You are my world. Everything for me revolves around you. Seeing you happy and cared for is all I want.
-    You are perfect and beautiful, baby. I will always put up with you, baby.
-    I want you to know that you can always be your true self with me because you allowed me to be myself with you.
-    I know that no matter what happens, I will always have you to support me.
+    You are perfect and beautiful, baby, and I will always put up with you.
+    I want you to know that you can always be your true self with me, because you made me feel safe enough to be myself with you.
+    And I know that no matter what happens, I will always have you by my side.
     Thank you for showing me that there is more meaning to life.
   </p>
 </section>
@@ -206,7 +217,18 @@ for (let i = 0; i < 80; i++) {
   <p class="text-box">
     I will never settle. I will always push myself to be the best version for you, and I will always keep loving you more and more each day.
     I will hold your hand through everything, no matter how small or big the situation may be.
-    I got you. No matter what happens, I’ll always love you and choose you.
+    I got you. Whatever happens, I’ll always love you and choose you.
+  </p>
+</section>
+
+<!-- HOW IT ENDS -->
+<section>
+  <h2>How It Ends 🌙</h2>
+  <p class="text-box">
+    I don’t know what the future has in store for us, but I do know one thing.
+    I want to grow old with you, and I want to take care of you the same way I take care of you now.
+    I want to wake up next to you every day for the rest of my life, and I want to go to sleep every day knowing that I have you.
+    I love you now, and I will love you forever.
   </p>
 </section>
 
@@ -252,7 +274,7 @@ for (let i = 0; i < 80; i++) {
   <p id="answerText" class="text-box"></p>
 </section>
 
-<section>
+<section class="final">
   <h1>I Love You, Ney ❤️</h1>
   <p class="footer">Made with all my love, just for you.</p>
 </section>
@@ -297,7 +319,7 @@ let noScale = 1;
 
 yesBtn.addEventListener("click", function () {
   document.getElementById("answerText").innerText = "YAYYYYY GOT THE MOST BEAUTIFUL GIRL IN THE WORLD TO BE MY VALENTINE";
-  spawnHearts();
+  spawnHearts(true);
 });
 
 noBtn.addEventListener("click", function () {
@@ -321,17 +343,17 @@ function pick(name) {
   }
 }
 
-// Hearts
-function spawnHearts() {
-  for (let i = 0; i < 50; i++) {
+// Hearts rain
+function spawnHearts(big) {
+  for (let i = 0; i < (big ? 80 : 40); i++) {
     const h = document.createElement("div");
     h.className = "heart";
     h.innerText = "❤️";
     h.style.left = Math.random() * 100 + "vw";
-    h.style.fontSize = (15 + Math.random() * 25) + "px";
+    h.style.fontSize = (18 + Math.random() * 30) + "px";
     h.style.animationDuration = (3 + Math.random() * 3) + "s";
     document.body.appendChild(h);
-    setTimeout(() => h.remove(), 6000);
+    setTimeout(() => h.remove(), 7000);
   }
 }
 </script>
