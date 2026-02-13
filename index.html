@@ -42,7 +42,7 @@ section {
   justify-content: center;
   text-align: center;
   padding: 60px 20px;
-  gap: 16px;
+  gap: 20px;
   opacity: 0;
   transform: translateY(40px);
   transition: all 1s ease;
@@ -53,16 +53,29 @@ section.visible {
   transform: translateY(0);
 }
 
-/* Hero */
-.hero h1 {
-  font-size: 3.2rem;
+/* Headings */
+h1 {
+  font-size: 3.4rem;
   font-weight: 800;
+}
+
+h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+/* Text blocks */
+.text-box {
+  max-width: 900px;
+  font-size: 1.35rem;
+  line-height: 1.9;
+  opacity: 0.95;
 }
 
 /* Buttons */
 button {
-  padding: 12px 28px;
-  font-size: 18px;
+  padding: 14px 34px;
+  font-size: 20px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -75,7 +88,7 @@ button {
 
 /* Slideshow */
 .slideshow {
-  max-width: 340px;
+  max-width: 380px;
   margin: 20px auto;
 }
 
@@ -88,18 +101,10 @@ button {
 
 .slide-photo.active { display: block; }
 
-/* Text blocks */
-.text-box {
-  max-width: 800px;
-  font-size: 1.15rem;
-  line-height: 1.8;
-  opacity: 0.95;
-}
-
 /* Pick Valentine */
 .options {
   display: flex;
-  gap: 20px;
+  gap: 25px;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 20px;
@@ -107,10 +112,11 @@ button {
 
 .option {
   background: rgba(255,255,255,0.1);
-  padding: 15px 20px;
-  border-radius: 15px;
+  padding: 18px 26px;
+  border-radius: 18px;
   cursor: pointer;
   transition: transform 0.2s;
+  font-size: 1.2rem;
 }
 
 .option:hover { transform: scale(1.08); }
@@ -119,7 +125,7 @@ button {
 .heart {
   position: fixed;
   bottom: -20px;
-  font-size: 20px;
+  font-size: 22px;
   animation: float 6s linear infinite;
   pointer-events: none;
 }
@@ -131,19 +137,14 @@ button {
 
 /* Dramatic ending */
 .final h1 {
-  font-size: 3.5rem;
+  font-size: 3.8rem;
   color: #ffb3c7;
   text-shadow: 0 0 20px rgba(255,77,109,0.8);
 }
 
-.final p {
-  font-size: 1.3rem;
-  opacity: 0.9;
-}
-
 .footer {
-  opacity: 0.6;
-  font-size: 14px;
+  opacity: 0.7;
+  font-size: 1.2rem;
 }
 </style>
 </head>
@@ -163,14 +164,14 @@ for (let i = 0; i < 80; i++) {
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Hey ney ❤️</h1>
-  <p>This little universe is just for you ✨</p>
+  <h1>Hey Love ❤️</h1>
+  <p class="text-box">This little universe is just for you ✨</p>
   <button id="playBtn">▶️ Play Our Song 🎶</button>
 </section>
 
 <!-- SONG MESSAGE -->
 <section>
-  <h2>This Song, ney 🎶</h2>
+  <h2>This Song 🎶</h2>
   <p class="text-box">
     This song reminds me of us. It shows how much we love each other, so I put it in here.
   </p>
@@ -178,36 +179,40 @@ for (let i = 0; i < 80; i++) {
 
 <!-- HOW IT STARTED -->
 <section>
-  <h2>How It Started, ney 💫</h2>
+  <h2>How It Started 💫</h2>
   <p class="text-box">
     If you told me that I would end up meeting the love of my life through a dating app, I would not have believed it at first.
     But here we are, 7 months later, and you are genuinely the best thing to ever happen to me.
-    I will forever be grateful for having you.
+    From eating at all these fancy places, to listening to music with you in auto rides, and to us cuddling at home watching Modern Family,
+    I cherish every single moment with you. I will forever be grateful for having you.
   </p>
 </section>
 
 <!-- WHY YOU MEAN SO MUCH -->
 <section>
-  <h2>Why You Mean So Much To Me, ney 💖</h2>
+  <h2>Why You Mean So Much To Me 💖</h2>
   <p class="text-box">
-    You are my world, ney. Everything for me revolves around you. Seeing you happy and cared for is all I want.
-    You allow me to be myself, and I know that no matter what happens, I will always have you to support me.
-    Thank you for showing me that there is more meaning to my life. I love you.
+    You are my world. Everything for me revolves around you. Seeing you happy and cared for is all I want.
+    You are perfect and beautiful, baby. I will always put up with you, baby.
+    I want you to know that you can always be your true self with me because you allowed me to be myself with you.
+    I know that no matter what happens, I will always have you to support me.
+    Thank you for showing me that there is more meaning to life.
   </p>
 </section>
 
 <!-- A PROMISE -->
 <section>
-  <h2>A Promise, ney 🤍</h2>
+  <h2>A Promise 🤍</h2>
   <p class="text-box">
-    I will never settle, and I will always keep loving you more and more each day.
-    No matter what happens, I’ll always love you and choose you.
+    I will never settle. I will always push myself to be the best version for you, and I will always keep loving you more and more each day.
+    I will hold your hand through everything, no matter how small or big the situation may be.
+    I got you. No matter what happens, I’ll always love you and choose you.
   </p>
 </section>
 
 <!-- MEMORIES -->
 <section>
-  <h2>Our Memories, ney 📸</h2>
+  <h2>Our Memories 📸</h2>
   <div class="slideshow">
     <img src="images/pic1.jpg" class="slide-photo">
     <img src="images/pic2.jpg" class="slide-photo">
@@ -230,25 +235,25 @@ for (let i = 0; i < 80; i++) {
 
 <!-- PICK VALENTINE -->
 <section>
-  <h2>Choose Your Valentine, ney 😏</h2>
+  <h2>Choose Your Valentine 😏</h2>
   <div class="options">
     <div class="option" onclick="pick('Carlos Sainz')">Carlos Sainz</div>
     <div class="option" onclick="pick('ASAP Rocky')">ASAP Rocky</div>
     <div class="option" onclick="pick('Me ❤️')">Me ❤️</div>
   </div>
-  <p id="pickResult"></p>
+  <p id="pickResult" class="text-box"></p>
 </section>
 
 <!-- FINAL QUESTION -->
 <section class="final">
-  <h1>Will You Be My Valentine, ney? 💖</h1>
+  <h1>Will You Be My Valentine, Ney? 💖</h1>
   <button id="yesBtn">YES 💘</button>
   <button id="noBtn">No 😢</button>
-  <p id="answerText"></p>
+  <p id="answerText" class="text-box"></p>
 </section>
 
 <section>
-  <h1>I Love You, ney ❤️</h1>
+  <h1>I Love You, Ney ❤️</h1>
   <p class="footer">Made with all my love, just for you.</p>
 </section>
 
@@ -291,7 +296,7 @@ const noBtn = document.getElementById("noBtn");
 let noScale = 1;
 
 yesBtn.addEventListener("click", function () {
-  document.getElementById("answerText").innerText = "YAYYY ❤️ I love you, ney!";
+  document.getElementById("answerText").innerText = "YAYYYYY GOT THE MOST BEAUTIFUL GIRL IN THE WORLD TO BE MY VALENTINE";
   spawnHearts();
 });
 
@@ -306,10 +311,13 @@ noBtn.addEventListener("click", function () {
 
 // Pick
 function pick(name) {
-  if (name === "Me ❤️") {
-    document.getElementById("pickResult").innerText = "Correct choice 😌❤️";
+  const result = document.getElementById("pickResult");
+  if (name === "Carlos Sainz") {
+    result.innerText = "He might have a cute smile, but he’s sadly taken. Please try again.";
+  } else if (name === "ASAP Rocky") {
+    result.innerText = "Sorry Ney, this man is taken too. You might have to fight Rihanna over this 😂";
   } else {
-    document.getElementById("pickResult").innerText = name + " is taken 😏 Choose again.";
+    result.innerText = "Finallyyyyy, about time 😌 Thank you for picking me, love.";
   }
 }
 
