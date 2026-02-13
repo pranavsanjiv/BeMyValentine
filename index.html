@@ -1,12 +1,170 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <h1>PATH TEST</h1>
-  <p id="path"></p>
-  <img src="pic1.jpg" width="300">
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Our Little Universe ✨</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script>
-    document.getElementById("path").innerText = window.location.href;
-  </script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0b1026, #1a2450);
+  color: white;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+section {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+p {
+  max-width: 700px;
+  opacity: 0.9;
+}
+
+.hero {
+  background: radial-gradient(circle at top, #2b3a8f, #0b1026);
+}
+
+.slideshow {
+  width: 280px;
+  max-width: 90%;
+  margin-top: 20px;
+}
+
+.slideshow img {
+  width: 100%;
+  border-radius: 20px;
+  display: none;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+}
+
+.slideshow img.active {
+  display: block;
+}
+
+.buttons button {
+  padding: 12px 28px;
+  font-size: 18px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: #ff5c8a;
+  color: white;
+}
+
+#noBtn {
+  background: #aaa;
+}
+
+.footer {
+  opacity: 0.6;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <h1>Hey Love 🌙</h1>
+  <p>I made this little space for us. Just you, me, and our memories.</p>
+  <p>(Tap anywhere once to start the music 🎶)</p>
+</section>
+
+<section>
+  <h1>Our Memories ✨</h1>
+  <div class="slideshow">
+    <img src="images/pic1.jpg" class="slide active">
+    <img src="images/pic2.jpg" class="slide">
+    <img src="images/pic3.jpg" class="slide">
+  </div>
+</section>
+
+<section>
+  <h1>Will You Be My Valentine? 💖</h1>
+  <div class="buttons">
+    <button id="yesBtn">YES ❤️</button>
+    <button id="noBtn">No 🙃</button>
+  </div>
+  <p id="response"></p>
+</section>
+
+<section>
+  <h1>For You 🤍</h1>
+  <p>
+    I don’t know how to write perfect love letters, but I know this:
+    life feels softer, safer, and brighter with you in it.
+    You’re my favorite place to be.
+  </p>
+</section>
+
+<section>
+  <p class="footer">Made with ❤️ just for you</p>
+</section>
+
+<audio id="audioPlayer" src="songs/say-you-wont-let-go.mp3" loop></audio>
+
+<script>
+  // Slideshow
+  let current = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide() {
+    slides.forEach(s => s.classList.remove("active"));
+    slides[current].classList.add("active");
+    current = (current + 1) % slides.length;
+  }
+
+  setInterval(showSlide, 3000);
+
+  // Music: play on first user interaction (browser rule)
+  const player = document.getElementById("audioPlayer");
+  let started = false;
+
+  document.addEventListener("click", function () {
+    if (!started) {
+      player.play();
+      started = true;
+    }
+  });
+
+  // Yes button
+  document.getElementById("yesBtn").addEventListener("click", function () {
+    document.getElementById("response").innerText = "You just made me really, really happy ❤️";
+  });
+
+  // No button runs away
+  const noBtn = document.getElementById("noBtn");
+  noBtn.addEventListener("mouseover", () => {
+    const x = Math.random() * (window.innerWidth - 100);
+    const y = Math.random() * (window.innerHeight - 50);
+    noBtn.style.position = "absolute";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+  });
+</script>
+
 </body>
 </html>
