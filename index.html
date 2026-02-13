@@ -5,15 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Our Little Universe 💖</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
 
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
 
 body {
-  background: linear-gradient(135deg, #0f172a, #1e293b);
+  background: linear-gradient(135deg, #0b1026, #1a2450);
   color: white;
   overflow-x: hidden;
+  position: relative;
+}
+
+/* Background sparkles */
+.sparkle {
+  position: fixed;
+  top: -10px;
+  width: 2px;
+  height: 2px;
+  background: white;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  from { transform: translateY(0); opacity: 0.8; }
+  to { transform: translateY(110vh); opacity: 0; }
 }
 
 /* Sections */
@@ -24,13 +41,22 @@ section {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 20px;
+  padding: 60px 20px;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Hero */
 .hero h1 {
-  font-size: 3rem;
-  margin-bottom: 15px;
+  font-size: 3.2rem;
+  font-weight: 800;
 }
 
 /* Buttons */
@@ -62,12 +88,11 @@ button {
 
 .slide-photo.active { display: block; }
 
-/* Love text */
-.love-text {
-  max-width: 700px;
-  font-size: 1.2rem;
+/* Text blocks */
+.text-box {
+  max-width: 800px;
+  font-size: 1.15rem;
   line-height: 1.8;
-  margin-top: 20px;
   opacity: 0.95;
 }
 
@@ -88,7 +113,7 @@ button {
   transition: transform 0.2s;
 }
 
-.option:hover { transform: scale(1.05); }
+.option:hover { transform: scale(1.08); }
 
 /* Hearts */
 .heart {
@@ -96,11 +121,24 @@ button {
   bottom: -20px;
   font-size: 20px;
   animation: float 6s linear infinite;
+  pointer-events: none;
 }
 
 @keyframes float {
   from { transform: translateY(0); opacity: 1; }
   to { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Dramatic ending */
+.final h1 {
+  font-size: 3.5rem;
+  color: #ffb3c7;
+  text-shadow: 0 0 20px rgba(255,77,109,0.8);
+}
+
+.final p {
+  font-size: 1.3rem;
+  opacity: 0.9;
 }
 
 .footer {
@@ -111,16 +149,65 @@ button {
 </head>
 <body>
 
+<!-- Sparkles -->
+<script>
+for (let i = 0; i < 80; i++) {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = Math.random() * 100 + "vw";
+  s.style.animationDuration = (5 + Math.random() * 5) + "s";
+  s.style.opacity = Math.random();
+  document.body.appendChild(s);
+}
+</script>
+
 <!-- HERO -->
 <section class="hero">
-  <h1>Hey Love ❤️</h1>
+  <h1>Hey ney ❤️</h1>
   <p>This little universe is just for you ✨</p>
   <button id="playBtn">▶️ Play Our Song 🎶</button>
 </section>
 
+<!-- SONG MESSAGE -->
+<section>
+  <h2>This Song, ney 🎶</h2>
+  <p class="text-box">
+    This song reminds me of us. It shows how much we love each other, so I put it in here.
+  </p>
+</section>
+
+<!-- HOW IT STARTED -->
+<section>
+  <h2>How It Started, ney 💫</h2>
+  <p class="text-box">
+    If you told me that I would end up meeting the love of my life through a dating app, I would not have believed it at first.
+    But here we are, 7 months later, and you are genuinely the best thing to ever happen to me.
+    I will forever be grateful for having you.
+  </p>
+</section>
+
+<!-- WHY YOU MEAN SO MUCH -->
+<section>
+  <h2>Why You Mean So Much To Me, ney 💖</h2>
+  <p class="text-box">
+    You are my world, ney. Everything for me revolves around you. Seeing you happy and cared for is all I want.
+    You allow me to be myself, and I know that no matter what happens, I will always have you to support me.
+    Thank you for showing me that there is more meaning to my life. I love you.
+  </p>
+</section>
+
+<!-- A PROMISE -->
+<section>
+  <h2>A Promise, ney 🤍</h2>
+  <p class="text-box">
+    I will never settle, and I will always keep loving you more and more each day.
+    No matter what happens, I’ll always love you and choose you.
+  </p>
+</section>
+
 <!-- MEMORIES -->
 <section>
-  <h2>Our Memories 💫</h2>
+  <h2>Our Memories, ney 📸</h2>
   <div class="slideshow">
     <img src="images/pic1.jpg" class="slide-photo">
     <img src="images/pic2.jpg" class="slide-photo">
@@ -141,18 +228,9 @@ button {
   </div>
 </section>
 
-<!-- LOVE MESSAGE -->
-<section>
-  <h2>From Me to You 💌</h2>
-  <p class="love-text">
-    Hey baby, I love you so much.<br>
-    You mean the world to me and I only want you, you complete me.
-  </p>
-</section>
-
 <!-- PICK VALENTINE -->
 <section>
-  <h2>Choose Your Valentine 😏</h2>
+  <h2>Choose Your Valentine, ney 😏</h2>
   <div class="options">
     <div class="option" onclick="pick('Carlos Sainz')">Carlos Sainz</div>
     <div class="option" onclick="pick('ASAP Rocky')">ASAP Rocky</div>
@@ -162,24 +240,35 @@ button {
 </section>
 
 <!-- FINAL QUESTION -->
-<section>
-  <h1>Will You Be My Valentine? 💖</h1>
+<section class="final">
+  <h1>Will You Be My Valentine, ney? 💖</h1>
   <button id="yesBtn">YES 💘</button>
   <button id="noBtn">No 😢</button>
   <p id="answerText"></p>
 </section>
 
 <section>
-  <p class="footer">Made with ❤️ just for you</p>
+  <h1>I Love You, ney ❤️</h1>
+  <p class="footer">Made with all my love, just for you.</p>
 </section>
 
 <audio id="bgMusic" src="songs/say-you-wont-let-go.mp3" loop></audio>
 
 <script>
-/* SLIDESHOW */
+// Fade-in on scroll
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+  sections.forEach(sec => {
+    const top = sec.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.85;
+    if (top < trigger) sec.classList.add("visible");
+  });
+});
+sections[0].classList.add("visible");
+
+// Slideshow
 let slides = document.querySelectorAll(".slide-photo");
 let current = 0;
-
 function showSlide() {
   slides.forEach(s => s.classList.remove("active"));
   slides[current].classList.add("active");
@@ -188,7 +277,7 @@ function showSlide() {
 setInterval(showSlide, 3000);
 showSlide();
 
-/* MUSIC */
+// Music
 const player = document.getElementById("bgMusic");
 const playBtn = document.getElementById("playBtn");
 playBtn.addEventListener("click", function () {
@@ -196,13 +285,13 @@ playBtn.addEventListener("click", function () {
   playBtn.innerText = "💖 Playing...";
 });
 
-/* VALENTINE */
+// Valentine
 const yesBtn = document.getElementById("yesBtn");
 const noBtn = document.getElementById("noBtn");
 let noScale = 1;
 
 yesBtn.addEventListener("click", function () {
-  document.getElementById("answerText").innerText = "YAYYY ❤️ I love you!";
+  document.getElementById("answerText").innerText = "YAYYY ❤️ I love you, ney!";
   spawnHearts();
 });
 
@@ -215,7 +304,7 @@ noBtn.addEventListener("click", function () {
   }
 });
 
-/* PICK */
+// Pick
 function pick(name) {
   if (name === "Me ❤️") {
     document.getElementById("pickResult").innerText = "Correct choice 😌❤️";
@@ -224,9 +313,9 @@ function pick(name) {
   }
 }
 
-/* HEARTS */
+// Hearts
 function spawnHearts() {
-  for (let i = 0; i < 40; i++) {
+  for (let i = 0; i < 50; i++) {
     const h = document.createElement("div");
     h.className = "heart";
     h.innerText = "❤️";
